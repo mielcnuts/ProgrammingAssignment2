@@ -17,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {   ##argument is defined as default v
       x <<- y
       inv <<- NULL                            ##if there is a new matrix, reset inv to NULL
     }
-    get <- function() x                       ##define the get fucntion - returns value of the matrix argument
+    get <- function() x                      
     setInverse <- function(solveMatrix) inv <<- solveMatrix ##assigns value of inv in parent environment
     getInverse <- function() inv                            ##gets the value of inv where called
     list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
@@ -35,7 +35,7 @@ cacheSolve <- function(x, ...) {
     return(inv)
   }
   data <- x$get()
-  inv <- solve(data, ...)
+  inv <- solve(data)
   x$setinverse(inv)
   inv
 }
